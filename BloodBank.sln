@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBank.API", "BloodBank.API\BloodBank.API.csproj", "{D27F5C29-34D7-4D4C-81BD-34B35B7B2118}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBank.Application", "BloodBank.Application\BloodBank.Application.csproj", "{3C210938-6C10-42B8-B225-BDC71B554CF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBank.Core", "BloodBank.Core\BloodBank.Core.csproj", "{9EB30BC0-AC28-4FE0-90A5-C58DABD8BC2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBank.Infrastructure", "BloodBank.Infrastructure\BloodBank.Infrastructure.csproj", "{F3A6C5F7-2965-4C5E-AFA1-F3FB356D6E18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBank.Testing.UnitTests", "BloodBank.Testing.UnitTests\BloodBank.Testing.UnitTests.csproj", "{A478147A-6B01-474D-9520-42E5A8B7E514}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBank.Testing.IntegrationTests", "BloodBank.Testing.IntegrationTests\BloodBank.Testing.IntegrationTests.csproj", "{1E859A84-B5F5-4920-A0B3-ABBF20EFB64C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBank.Testing.Common", "BloodBank.Testing.Common\BloodBank.Testing.Common.csproj", "{3CA273B2-A4A5-470C-B910-465487DF26AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D27F5C29-34D7-4D4C-81BD-34B35B7B2118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D27F5C29-34D7-4D4C-81BD-34B35B7B2118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D27F5C29-34D7-4D4C-81BD-34B35B7B2118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D27F5C29-34D7-4D4C-81BD-34B35B7B2118}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C210938-6C10-42B8-B225-BDC71B554CF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C210938-6C10-42B8-B225-BDC71B554CF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C210938-6C10-42B8-B225-BDC71B554CF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C210938-6C10-42B8-B225-BDC71B554CF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EB30BC0-AC28-4FE0-90A5-C58DABD8BC2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EB30BC0-AC28-4FE0-90A5-C58DABD8BC2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EB30BC0-AC28-4FE0-90A5-C58DABD8BC2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EB30BC0-AC28-4FE0-90A5-C58DABD8BC2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3A6C5F7-2965-4C5E-AFA1-F3FB356D6E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3A6C5F7-2965-4C5E-AFA1-F3FB356D6E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3A6C5F7-2965-4C5E-AFA1-F3FB356D6E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3A6C5F7-2965-4C5E-AFA1-F3FB356D6E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A478147A-6B01-474D-9520-42E5A8B7E514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A478147A-6B01-474D-9520-42E5A8B7E514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A478147A-6B01-474D-9520-42E5A8B7E514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A478147A-6B01-474D-9520-42E5A8B7E514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E859A84-B5F5-4920-A0B3-ABBF20EFB64C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E859A84-B5F5-4920-A0B3-ABBF20EFB64C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E859A84-B5F5-4920-A0B3-ABBF20EFB64C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E859A84-B5F5-4920-A0B3-ABBF20EFB64C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CA273B2-A4A5-470C-B910-465487DF26AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CA273B2-A4A5-470C-B910-465487DF26AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CA273B2-A4A5-470C-B910-465487DF26AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CA273B2-A4A5-470C-B910-465487DF26AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
