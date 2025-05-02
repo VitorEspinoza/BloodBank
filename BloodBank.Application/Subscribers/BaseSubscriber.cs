@@ -63,8 +63,7 @@ public abstract class BaseSubscriber<TDomainEvent> : BackgroundService where TDo
                 return;
             }
 
-            using var scope = _serviceProvider.CreateScope();
-            var result = await ProcessEventAsync(message, scope.ServiceProvider, cancellationToken);
+            var result = await ProcessEventAsync(message, cancellationToken);
 
             if (result)
             {
@@ -98,7 +97,6 @@ public abstract class BaseSubscriber<TDomainEvent> : BackgroundService where TDo
         await base.StopAsync(cancellationToken);
     }
 
-    protected abstract Task<bool> ProcessEventAsync(TDomainEvent @event, IServiceProvider serviceProvider,
-        CancellationToken cancellationToken);
+    protected abstract Task<bool> ProcessEventAsync(TDomainEvent @event, CancellationToken cancellationToken);
 }
     
