@@ -8,12 +8,10 @@ public class RabbitMqChannelPool : IAsyncDisposable
     private readonly IConnection _connection;
     private readonly ConcurrentBag<IChannel> _pool = new();
     private readonly SemaphoreSlim _semaphore;
-    private readonly int _maxPoolSize;
 
     public RabbitMqChannelPool(IConnection connection, int maxPoolSize = 10)
     {
         _connection = connection;
-        _maxPoolSize = maxPoolSize;
         _semaphore = new SemaphoreSlim(maxPoolSize);
     }
 
