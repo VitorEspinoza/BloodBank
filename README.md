@@ -1,222 +1,215 @@
-# 🩸 Sistema de Gerenciamento de Banco de Sangue
+[![Português](https://img.shields.io/badge/Português-🇧🇷_Leia_em_Português-green)](./README.pt-BR.md)
+
+# 🩸 Blood Bank Management System
 
 [![.NET](https://img.shields.io/badge/.NET-8.0-purple)](https://dotnet.microsoft.com/)
 [![Architecture](https://img.shields.io/badge/Architecture-Clean%20Architecture-brightgreen)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
-Sistema completo para gerenciamento de doadores, doações e estoque de sangue, implementando boas práticas de desenvolvimento e arquitetura limpa.
+A complete system for managing blood donors, donations, and stock, implementing development best practices and Clean Architecture principles.
 
-## 📌 Features Principais
+## 📌 Key Features
 
-### 🧑‍🤝‍🧑 Gestão de Doadores
+### 🧑‍🤝‍🧑 Donor Management
 
-- Cadastro com validação completa de elegibilidade
-- Histórico de doações individual
-- Restrições por período (90 dias mulheres/60 dias homens)
+- Registration with full eligibility validation
+- Individual donation history
+- Gender-based donation restrictions (90 days for women/60 days for men)
 
-### 🏦 Controle de Estoque
+### 🏦 Stock Control
 
-- Atualização automática ao registrar doações
-- Rastreamento por tipo sanguíneo e fator RH
+- Automatic stock updates when registering donations
+- Tracking by blood type and RH factor
 
-### ✉️ Comunicação
+### ✉️ Communication
 
-- **Brevo (Sendinblue)** para envio de:
-  - Agradecimentos pós-doção
-  - Certificado de doação
-- Notificações assíncronas via **RabbitMQ**
+- **Brevo (Sendinblue)** integration for:
+  - Post-donation thank-you emails
+  - Donation certificates
+- Asynchronous notifications via **RabbitMQ**
 
-### 📄 Documentação
+### 📄 Documentation
 
-- PDFS Gerados com **QuestPDF**
-  - Geração de **certificados de doação**;
-  - **Relatórios** periódicos:
-    - Quantidade total de sangue por tipo disponível
-    - Doações nos últimos 30 dias com informações dos doadores
+- PDF generation with **QuestPDF**:
+  - Donation certificates
+  - Periodic reports:
+    - Total blood stock by type
+    - Recent donations (last 30 days) with donor information
 
-## Confira abaixo os relatórios e certificado:
+## See sample reports and certificate below:
 
-![Certificado de Doação](https://github.com/user-attachments/assets/fc56ff6f-762d-46cb-9567-9677d4a13503)
-![Relatório de Doações Recentes](https://github.com/user-attachments/assets/556c407c-b2fe-42bb-bbd4-038cd24b3b1f)
-![Relatório de Estoque de Sangue](https://github.com/user-attachments/assets/b11e9a9f-0ae0-434f-9c5f-1039e48f05e5)
+![Donation Certificate](https://github.com/user-attachments/assets/fc56ff6f-762d-46cb-9567-9677d4a13503)
+![Recent Donations Report](https://github.com/user-attachments/assets/556c407c-b2fe-42bb-bbd4-038cd24b3b1f)
+![Blood Stock Report](https://github.com/user-attachments/assets/b11e9a9f-0ae0-434f-9c5f-1039e48f05e5)
 
-
-## 🛠️ Tecnologias e Padrões
+## 🛠️ Technologies and Patterns
 
 ### Core Stack
 
 - ASP.NET Core 8
 - Entity Framework Core 8
 - SQL Server
-- Rabbit MQ
+- RabbitMQ
 - Docker
 
-### Arquitetura
+### Architecture
 
 - Clean Architecture
-- CQRS com MediatR
+- CQRS with MediatR
 - Domain-Driven Design (DDD)
 - Unit of Work
 - Repository Pattern
 
-### Integrações
+### Integrations
 
-- **Brevo API** (comunicação por email)
-- **ViaCEP** (validação de endereços)
+- **Brevo API** (email communication)
+- **ViaCEP** (Brazilian postal code validation)
 
-### Mensageria com RabbitMQ
+### RabbitMQ Messaging
 
-- **Configuração**:
+- **Configuration**:
   - Channel Pooling
-  - Padrão Outbox
+  - Outbox Pattern
     - Circuit Breaker & Retry (Polly)
-  - Idempotência
-- **Resiliência**:
+  - Idempotency
+- **Resilience**:
   - `bloodbank.dlx` (Dead Letter Exchange)
   - `bloodbank.healthcheck` (Health Check Exchange)
 
-### Qualidade
+### Quality Assurance
 
-- Testes Unitários
-  - **xUnit** como framework base
-  - **NSubstitute** para criação de mocks
-  - **Bogus** para criação de dados falsos
-- Testes Integração
-  - TestContainers com **WireMock**, **RabbitMQ** e **SQLServer**
+- Unit Tests
+  - **xUnit** as base framework
+  - **NSubstitute** for mocking
+  - **Bogus** for fake data generation
+- Integration Tests
+  - TestContainers with **WireMock**, **RabbitMQ** and **SQLServer**
 
-## ⚙️ Configuração
+## ⚙️ Setup
 
-#### ⚠️ Aviso de Segurança
+#### ⚠️ Security Notice
 
-As credenciais abaixo são apenas para desenvolvimento local. Nunca as utilize em produção.
+The credentials below are for local development only. Never use them in production.
 
-#### Essenciais
+#### Essentials
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download) (v8.0.x)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop) (v4.25+)
 
-### Instalação
+### Installation
 
-1. Clone o repositório:
-
+1. Clone the repository:
    ```bash
    git clone https://github.com/VitorEspinoza/BloodBank.git
-
    ```
-
-2. Configure a chave do brevo e a connection string no .NET Secrets:
+2. Configure the target key and connection string in .NET Secrets:
 
 ```json
 {
-  // Ajuste conforme sua configuração do brevo
+  // Adjust according to your Brevo configuration
 
   "Brevo": {
-    "ApiKey": "sua-chave",
-    "FromEmail": "seu-email@email.com",
-    "FromName": "Sistema Banco de Sangue"
+    "ApiKey": "your-key",
+    "FromEmail": "your-email@email.com",
+    "FromName": "Blood Bank System"
   },
 
-  // Ajuste conforme sua conexão
+  // Adjust according to your connection
 
   "ConnectionStrings": {
-    "BloodBankCs": "Server=localhost,1433;Database=BloodBank;User Id=sa;Password=Senha@Forte123!;TrustServerCertificate=True;Encrypt=False;"
+    "BloodBankCs": "Server=localhost,1433;Database=BloodBank;User Id=sa;Password=Strong@Password123!;TrustServerCertificate=True;Encrypt=False;"
   }
 }
 ```
 
-### Usando Docker Compose
+### Using Docker Compose
 
-Este projeto utiliza Docker Compose para facilitar a configuração dos serviços necessários (RabbitMQ e SQL Server). Todas as dependências são provisionadas automaticamente.
+This project uses Docker Compose to facilitate the configuration of the necessary services (RabbitMQ and SQL Server). All dependencies are provisioned automatically.
 
-#### Serviços Configurados
+#### Configured Services
 
-- 🐇 **RabbitMQ 4** (mensageria)
+- **RabbitMQ 4** (messaging)
 
-  - Interface de administração: http://localhost:15672 (usuário: `guest`, senha: `guest`)
-  - Porta AMQP: 5672
+  - Administration interface: http://localhost:15672 (user: `guest`, password: `guest`)
+  - AMQP port: 5672
 
-- 🗃️ **SQL Server 2022** (banco de dados)
-  - Conexão: `localhost,1433`
-  - Usuário: `sa`
-  - Senha: `Senha@Forte123!`
+- 🗃️ **SQL Server 2022** (database)
+  - Connection: `localhost,1433`
+  - User: `sa`
+  - Password: `Strong@Password123!`
 
-##### ⚙️ Pré-requisitos
+##### ⚙️ Prerequisites
 
-- 🐋 **Docker** (rodando em background)  
+- 🐋 **Docker** (running in the background)
   [![Docker Status](https://img.shields.io/badge/Docker-Running-2496ED?logo=docker)](https://docs.docker.com/get-docker/)
 
+#### How to use
 
-#### Como usar
-
-1. **Iniciar os serviços**:
+1. **Start the services**:
 
    ```bash
-   # Navegue até a pasta raiz do projeto (onde está o arquivo docker-compose.yml)
-   cd caminho/para/projeto
+   # Navigate to the root folder of the project (where the docker-compose.yml file is)
+   cd path/to/project
 
-   # Inicie os containers em modo interativo para ver os logs
+   # Start the containers in interactive mode to see the logs
    docker-compose up
 
-   # OU inicie em modo background
+   # OR start in background mode
    docker-compose up -d
    ```
 
-2. **Verificar status dos serviços**:
+2. **Check status of services**:
 
    ```bash
    docker ps
    ```
 
-3. **Parar os serviços**:
+3. **Stop services**:
 
-   ```bash
-   docker-compose down
-   ```
+```bash
+docker-compose down
+```
 
-4. **Remover volumes e dados persistentes** (opcional):
-   ```bash
-   docker-compose down -v
-   ```
+4. **Remove persistent volumes and data** (optional):
 
-#### Observações Importantes
+```bash
+docker-compose down -v
+```
 
-- Se executar em modo background (`-d`), aguarde pelo menos 10-15 segundos para que o RabbitMQ inicialize completamente antes de iniciar a aplicação.
-- Todos os dados são persistidos em volumes Docker, portanto sobreviverão ao reinício dos containers.
-- Para problemas de conexão com o RabbitMQ, tente executar sem a flag `-d` para ver os logs em tempo real.
+#### Important Notes
 
+- If running in background mode (`-d`), wait at least 10-15 seconds for RabbitMQ to fully initialize before starting the application.
+- All data is persisted on Docker volumes, so it will survive the restart of the containers.
+- For problems connecting to RabbitMQ, try running it without the `-d` flag to see the logs in real time.
 
-#### 🛠️ Configuração do Banco
+#### 🛠️ Database configuration
 
-Execute para aplicar as migrations:
+Run to apply the migrations:
 
 ```bash
 dotnet ef database update --project BloodBank.Infrastructure
 ```
 
-#### ▶️ Executando a API
+#### ▶️ Running the API
 
-**AVISO IMPORTANTE**: O comando abaixo só funcionará se você tiver configurado todos os pré requisitos da aba **Essenciais** e estiver com os containers rodando (Ver seção **Usando Docker Compose**).
+**IMPORTANT NOTICE: The command below will only work if you have configured all the pre-requisites of the **Essentials** tab and have the containers running (See section **Using Docker Compose\*\*).
 
-Na raiz do projeto:
+In the root of the project:
 
 ```bash
 dotnet run --project BloodBank.API
 ```
 
-## 🧪 Testes
+## 🧪 Testing
 
-#### 🔬 Testes Unitários
+#### 🔬 Unit tests
 
 ```bash
 dotnet test BloodBank.Testing.UnitTests
 ```
 
-#### 🧩 Testes de Integração
+#### 🧩 Integration Tests
 
-##### ⚙️ Pré-requisitos
+##### ⚙️ Prerequisites
 
-- 🐋 **Docker** (rodando em background)  
+- 🐋 **Docker** (running in the background)
   [![Docker Status](https://img.shields.io/badge/Docker-Running-2496ED?logo=docker)](https://docs.docker.com/get-docker/)
-
-```bash
-dotnet test BloodBank.Testing.IntegrationTests
-```
