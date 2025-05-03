@@ -72,10 +72,8 @@ public class RecentDonationsReport : IDocument
                                         table.Cell().Text(donation.QuantityMl.ToString());
                                         table.Cell().Text(donation.DonorName);
                                         
-                                        var bloodTypeColor = (donation.BloodType.EndsWith("-") && 
-                                            (donation.BloodType.StartsWith("AB") || donation.BloodType.StartsWith("O")))
-                                            ? Colors.Red.Darken2
-                                            : Colors.Black;
+                                        var bloodTypeColor = donation.BloodType.EndsWith("-") ? 
+                                            Colors.Red.Darken2 : Colors.Black;
                                         
                                         table.Cell().Text(donation.BloodType).FontColor(bloodTypeColor);
                                         table.Cell().Text(donation.DonorCity);
