@@ -116,7 +116,7 @@ The credentials below are for local development only. Never use them in producti
   // Adjust according to your connection
 
   "ConnectionStrings": {
-    "BloodBankCs": "Server=localhost,1433;Database=BloodBank;User Id=sa;Password=Strong@Password123!;TrustServerCertificate=True;Encrypt=False;"
+    "BloodBankCs": "Server=localhost,1433;Database=BloodBank;User Id=sa;Password=Senha@Forte123!;TrustServerCertificate=True;Encrypt=False;"
   }
 }
 ```
@@ -135,7 +135,7 @@ This project uses Docker Compose to facilitate the configuration of the necessar
 - 🗃️ **SQL Server 2022** (database)
   - Connection: `localhost,1433`
   - User: `sa`
-  - Password: `Strong@Password123!`
+  - Password: `Senha@Forte123!`
 
 ##### ⚙️ Prerequisites
 
